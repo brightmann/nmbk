@@ -1,5 +1,5 @@
 import Document, { Head, Main, NextScript } from "next/document";
-import { config } from "../config/config.yml";
+import { config } from "../config/config";
 
 export default class MyDocument extends Document {
     static async getInitialProps(ctx) {

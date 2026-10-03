@@ -8,7 +8,7 @@ const chalk = require("chalk");
 
 // const yaml = require("js-yaml");
 // const { config } = yaml.safeLoad(
-//     fs.readFileSync(__dirname + "/../config/config.yml", "utf8")
+//     fs.readFileSync(__dirname + "/../config/config", "utf8")
 // );
 // Then you can custom create colorized output strings like this:
 // export function highlight(msg) {
