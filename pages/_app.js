@@ -1,4 +1,4 @@
-import App from "next/app";
+import React from "react";import App from "next/app";
 import Head from "next/head";
 import { NextSeo } from "next-seo";
 import Navigation from "../components/Navigation";
