@@ -1,12 +1,16 @@
+import React from "react";
 import SearchLayout from "../components/layouts/SearchLayout";
 import BlogLayout from "../components/layouts/BlogLayout";
+
 
 export function renderLayout(props, state) {
     const { Component } = props;
     const { postData } = state;
     const { layout } = postData;
 
+
     if (!layout || !props.router) return;
+
 
     switch (layout) {
         case "post":
