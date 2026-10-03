@@ -1,10 +1,9 @@
 import { formatSEODate, getSecondsSinceEpoch } from "./formatters";
 import { config } from "../config/config";
+import fileList from "./file-list.json";
 
 const postFileNames = () => {
-    const postFileNames =
-        preval`module.exports = require("fs").readdirSync("./pages/blog")` ||
-        [];
+    const postFileNames = fileList.posts || [];
     return Promise.resolve(postFileNames);
 };
 
