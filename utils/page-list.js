@@ -1,13 +1,13 @@
 import { formatSEODate, getSecondsSinceEpoch } from "./formatters";
 import { config } from "../config/config";
+import fileList from "./file-list.json";
 
 // _app.js and _document.js are next.js specific files, and should be ignored
 // the blog directory is ignored here, but is processed in post-list.js
 const ignoreList = ["_app.js", "_document.js", "blog"];
 
 const pageFileNames = () => {
-    const allPageFileNames =
-        preval`module.exports = require("fs").readdirSync("./pages")` || [];
+    const allPageFileNames = fileList.pages || [];
     const filteredFileNames = allPageFileNames.filter(
         name => !name || !ignoreList.includes(name)
     );
