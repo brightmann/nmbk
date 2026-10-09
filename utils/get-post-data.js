@@ -11,6 +11,11 @@ export default async function(router) {
     // for the root path, we want index.js file
     compName = router.pathname == "/" ? "index" : compName;
 
+    // paginated blog list (/blog/page/N) uses the blog list metadata
+    if (router.route.startsWith("/blog/page/")) {
+        compName = "blog";
+    }
+
     // get page data based on file name
     let allPageData;
     try {

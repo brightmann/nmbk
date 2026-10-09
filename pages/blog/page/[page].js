@@ -21,15 +21,13 @@ export async function getServerSideProps(ctx) {
 }
 
 export default function BlogPaginated(props) {
+    // getServerSideProps result is nested under pageProps when _app has getInitialProps
+    const page = props.pageProps?.page ?? props.page;
     const blogPosts = props.allData.filter(content => content.type == "post");
     const totalPages = getTotalPages(blogPosts.length);
-    const pagePosts = getPagePosts(blogPosts, props.page);
+    const pagePosts = getPagePosts(blogPosts, page);
     return (
-        <BlogList
-            posts={pagePosts}
-            currentPage={props.page}
-            totalPages={totalPages}
-        />
+        <BlogList posts={pagePosts} currentPage={page} totalPages={totalPages} />
     );
 }
 BlogPaginated.defaultProps = {
