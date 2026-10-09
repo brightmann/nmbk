@@ -7,7 +7,10 @@ const path = require("path");
 const pagesDir = path.join(__dirname, "..", "pages");
 const blogDir = path.join(pagesDir, "blog");
 const pages = fs.readdirSync(pagesDir);
-const posts = fs.existsSync(blogDir) ? fs.readdirSync(blogDir) : [];
+// Only .mdx files are posts; skip subdirectories (e.g. blog/page/ for pagination)
+const posts = fs.existsSync(blogDir)
+    ? fs.readdirSync(blogDir).filter(name => name.endsWith(".mdx"))
+    : [];
 const out = { pages, posts };
 fs.writeFileSync(
     path.join(__dirname, "..", "utils", "file-list.json"),
